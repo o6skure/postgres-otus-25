@@ -1,0 +1,26 @@
+services:
+  pg-server:
+    image: postgres:15
+    container_name: pg-server
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=user
+      - POSTGRES_DB=otus
+    volumes:
+      - ./var/lib/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d otus || exit 1"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  pg-client:
+    image: postgres:15
+    container_name: pg-client
+    depends_on:
+      - pg-server
+    stdin_open: true # -i
+    tty: true # -t
+    command: ["sleep", "infinity"] # don't run postgres server, just use psql
