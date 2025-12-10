@@ -19,8 +19,6 @@ services:
   pg-client:
     image: postgres:15
     container_name: pg-client
-    depends_on:
-      - pg-server
     stdin_open: true                # -i: держать STDIN открытым для docker exec -i
     tty: true 	                    # -t: выделить псевдотерминал для интерактивной оболочки docker exec -t
     command: ["sleep", "infinity"]  # не запускать сервер PostgreSQL, только держать контейнер живым для psql

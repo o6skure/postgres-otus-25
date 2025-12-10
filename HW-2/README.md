@@ -55,8 +55,6 @@ services:
   pg-client:
     image: postgres:15
     container_name: pg-client
-    depends_on:
-      - pg-server
     stdin_open: true
     tty: true
     command: ["sleep", "infinity"]
