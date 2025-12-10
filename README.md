@@ -15,4 +15,4 @@
 
 **Домашние задания:**
 - [HW-1: Работа с уровнями изоляции транзакции в PostgreSQL](./HW-1/README.md)
-- [HW-2: Установка и настройка PostgteSQL в контейнере Docker](./HW-2/README.md)
+- [HW-2: Установка и настройка PostgreSQL в контейнере Docker](./HW-2/README.md)
